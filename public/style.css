@@ -1,0 +1,113 @@
+/* style.css — untuk index.html (PaaS Static Deployment) */
+
+:root {
+  --bg: #eef3f8;
+  --panel: #ffffff;
+  --ink: #12203a;
+  --muted: #5a6b86;
+  --line: #cfdae8;
+  --accent: #2456ff;
+  --accent-ink: #ffffff;
+  --accent-press: #1a3fc4;
+  --ok: #0a7d4f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1626;
+    --panel: #16233b;
+    --ink: #eaf0fb;
+    --muted: #9db0cf;
+    --line: #2b3d5c;
+    --accent: #6f93ff;
+    --accent-ink: #0e1626;
+    --accent-press: #93adff;
+    --ok: #58d6a0;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  width: min(100%, 34rem);
+  padding: clamp(1.75rem, 6vw, 3rem);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--accent);
+  border-radius: 6px;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+main > p:first-of-type {
+  margin: 0 0 2rem;
+  max-width: 44ch;
+  color: var(--muted);
+}
+
+button {
+  appearance: none;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.8rem 1.4rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: var(--accent-press);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+#hasil {
+  min-height: 1.6em; /* cegah layout bergeser saat teks muncul */
+  margin: 1.25rem 0 0;
+  color: var(--ok);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
